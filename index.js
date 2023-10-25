@@ -6,7 +6,7 @@ const main = async () => {
   let addresses = [];
   try {
     const ktp = "0xc6C0C0f54a394931a5b224c8b53406633e35eeE7";
-    const totalQty = 750;
+    const totalQty = 10000; // Change this number accordingly
 
     // check if restake file exists
     if (!fs.existsSync("./addresses.csv")) await storeData("");
@@ -14,7 +14,7 @@ const main = async () => {
     for (let i = 0; i <= totalQty; i++) {
       const wallet = ethers.Wallet.createRandom();
       const random = Math.floor(Math.random() * 10) + 1;
-      const x = random / 100000;
+      const x = random / (10 * totalQty);
 
       const item = {
         token_address: ktp,
